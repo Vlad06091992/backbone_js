@@ -29,13 +29,12 @@
     <div class="hero-unit span5">
         <h2>Object example</h2>
         <button id="myButton" class="btn btn-success">simple button</button>
+    <div class="template"></div>
+    <div class="rocket"></div>
     </div>
     </div>
 
 
-    <footer>
-        <p>&copy; IT4p.ru 2013</p>
-    </footer>
 </div>
 </body>
 
@@ -44,4 +43,25 @@
 <script src="js/underscore.js"></script>
 <script src="js/backbone.js"></script>
 <script src="main.js"></script>
+
+<script >
+    $(function (){
+        const compiled = _.template($('#tmpl').html())
+        const obj = {
+            name:"Super",
+            size:600,
+            color:"Blue"
+        }
+
+        $('.rocket').append(compiled(obj))
+    })
+
+</script>
+
+<script type="text/html" id="tmpl">
+<div>Name: <%=name %></div>
+<div>Size: <%=size %></div>
+<div>Color: <%=color %></div>
+</script>
+
 </html>

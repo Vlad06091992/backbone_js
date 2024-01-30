@@ -1,29 +1,81 @@
 // создаем объект
-// var app = app || {};
+const app = {};
 
 $(function () {
 
-//соьытия
-    var object = {};
+//events
+    const object = {};
     _.extend(object, Backbone.Events);
-    let callback = function(msg) {
+    let callback = function (msg) {
         debugger
         alert("Сработало " + msg);
     };
     object.on("alert", callback);
 
-    object.on("alert", function(msg) {
+    object.on("alert", function (msg) {
         console.log(msg)
     });
 
-    object.trigger("alert", "событие");
+
+    // object.trigger("alert", "событие");
 
     // $('.btn').live('click',()=>callback('клик'))
-    $('.btn').live('click',()=>{
-        debugger
-        object.trigger('alert','алерт')
+    // $('.btn').live('click', () => {
+    //     object.trigger('alert', 'алерт')
+    // })
+
+
+    //models
+
+    app.MyObject = Backbone.Model.extend({
+        defaults: {             //настройки по дефолту
+            name: 'name',
+            description: '-',
+            size: 100
+        },
+        initialize(){ //функция которая вызывается после создания объекта
+            console.log('obj created')
+            this.on('change',()=>{
+                console.log('obj changed')
+                const json = this.toJSON()
+                // const json = this.changedAttributes() //выводим лишь изм.аттрибуты
+                console.log(json)
+            })
+        },
+        increaseSize(){
+            this.set({
+                size: this.get('size') + 100
+            },{validate:true})                                 //включение валидации
+        },
+        validate(attrs){                       //валидация на изменение объекта
+            console.log(attrs)
+            if(attrs.size >= 500) return 'incorrect size'
+        }
+
+    }) //функция консруктор
+    app.myObject = new app.MyObject({                  //создание экземпляра
+        name: 'Rocket',
+        description: 'Super',
+        isChanged:false
+
     })
 
+    app.myObject.set({ //изменяем объект
+        size: 100,
+        isChanged: true
+    })
+
+    const json = app.myObject.toJSON()
+
+    $('.btn').live('click', ()=>{
+        app.myObject.increaseSize()
+    })
+
+
+    const compiled = _.template("hello: <%= name %>");
+
+
+    $('.template').append(compiled({name: 'moe'}))
 
     //
     // //создаем прототип нашего объекта или модели
