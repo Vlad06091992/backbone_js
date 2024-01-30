@@ -17,14 +17,6 @@ $(function () {
     });
 
 
-    // object.trigger("alert", "событие");
-
-    // $('.btn').live('click',()=>callback('клик'))
-    // $('.btn').live('click', () => {
-    //     object.trigger('alert', 'алерт')
-    // })
-
-
     //models
 
     app.MyObject = Backbone.Model.extend({
@@ -52,7 +44,7 @@ $(function () {
             if(attrs.size >= 500) return 'incorrect size'
         }
 
-    }) //функция консруктор
+    }) //функция конструктор
     app.myObject = new app.MyObject({                  //создание экземпляра
         name: 'Rocket',
         description: 'Super',

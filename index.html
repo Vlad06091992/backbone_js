@@ -23,55 +23,89 @@
     </div>
 </div>
 
-
 <div class="container">
-    <div class="row">
-        <div class="hero-unit span5">
-            <h2>Object example</h2>
-            <button id="myButton" class="btn btn-success">simple button</button>
-            <button id="toggleNice" class="btn btn-success">Toggle nice</button>
-            <div class="template"></div>
-            <div class="rocket"></div>
-        </div>
+    <div class="hero-unit">
+        <h2>My rocket</h2>
+        <div id="rocket"></div>
     </div>
-
-
 </div>
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="hero-unit span5">-->
+<!--            <h2>Object example</h2>-->
+<!--            <button id="myButton" class="btn btn-success">simple button</button>-->
+<!--            <button id="toggleNice" class="btn btn-success">Toggle nice</button>-->
+<!--            <div class="template"></div>-->
+<!--            <div class="rocket"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!--</div>-->
 </body>
 
 
 <script src="js/jquery.js"></script>
 <script src="js/underscore.js"></script>
 <script src="js/backbone.js"></script>
-<script src="main.js"></script>
+<script src="rocketModel.js"></script>
+<script src="rocketView.js"></script>
+<!--<script src="main.js"></script>-->
 
 <script>
     $(function () {
-        const compiled = _.template($('#tmpl').html())
-        let obj = {
-            name: "Super",
-            size: 600,
-            color: "Blue",
-            nice: true
-        }
+        // const compiled = _.template($('#tmpl').html())
+        // let obj = {
+        //     name: "Super",
+        //     size: 600,
+        //     color: "Blue",
+        //     nice: true
+        // }
+        //
+        // $('.rocket').append(compiled(obj))
+        // $('#toggleNice').live('click', () => {
+        //     obj.nice = !obj.nice;
+        //     $('.rocket').empty().append(compiled(obj))
+        // })
+        //
 
-        $('.rocket').append(compiled(obj))
-        $('#toggleNice').live('click', () => {
-            obj.nice = !obj.nice;
-            $('.rocket').empty().append(compiled(obj))
+        const model = new RocketModel()
+        const view = new RocketView({
+            model,
+            el:'#rocket'
         })
 
     })
 
 </script>
 
-<script type="text/html" id="tmpl">
-    <div>Name: <%=name %></div>
-    <div>Size: <%=size %></div>
-    <div>Color: <%=color %></div>
-    <% if(nice === true){ %>
-    <div>Nice!</div>
-    <%   } %>
+<script type="text/template" id="viewRocket">
+    Name:
+    <span class="name" contenteditable="true"><%- name %></span>
+    <div class="form-horizontal">
+        <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
+        <input class="size" type="number" value="<%- size %>" style="width: 40px;">
+        <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
+        Remove:
+        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
+    </div>
+    Description:
+    <span class="desc" contenteditable="true"><%- description %></span>
 </script>
+
+<!--<script type="text/html" id="tmpl">-->
+<!--    <div>Name: <%=name %></div>-->
+<!--    <div>Size: <%=size %></div>-->
+<!--    <div>Color: <%=color %></div>-->
+<!--    <% if(nice === true){ %>-->
+<!--    <div>Nice!</div>-->
+<!--    <%   } %>-->
+<!--</script>-->
+
+
+
+
 
 </html>
