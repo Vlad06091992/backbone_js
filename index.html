@@ -25,25 +25,10 @@
 
 <div class="container">
     <div class="hero-unit">
-        <h2>My rocket</h2>
-        <div id="rocket"></div>
+        <div id="rockets"></div>
     </div>
 </div>
 
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="hero-unit span5">-->
-<!--            <h2>Object example</h2>-->
-<!--            <button id="myButton" class="btn btn-success">simple button</button>-->
-<!--            <button id="toggleNice" class="btn btn-success">Toggle nice</button>-->
-<!--            <div class="template"></div>-->
-<!--            <div class="rocket"></div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-
-<!--</div>-->
 </body>
 
 
@@ -56,56 +41,57 @@
 
 <script>
     $(function () {
-        // const compiled = _.template($('#tmpl').html())
-        // let obj = {
-        //     name: "Super",
-        //     size: 600,
-        //     color: "Blue",
-        //     nice: true
-        // }
-        //
-        // $('.rocket').append(compiled(obj))
-        // $('#toggleNice').live('click', () => {
-        //     obj.nice = !obj.nice;
-        //     $('.rocket').empty().append(compiled(obj))
-        // })
-        //
-
         const model = new RocketModel()
         const view = new RocketView({
             model,
-            el:'#rocket'
+            el: '#rockets'
         })
-
     })
+</script>
 
+
+<script type="text/template" id="viewRockets">
+    <h2>My rockets</h2>
+    <button data-rel="-10" class="changeSize btn btn-success btn-primary">add one</button>
+    <button data-rel="-10" class="changeSize btn btn-info btn-primary">to JSON</button>
+    <table class="table table-striped">
+        <thead>
+        <th data-sort="name">Name</th>
+        <th data-sort="size">Size</th>
+        <th data-sort="description">Description</th>
+        <th data-sort="actions">Actions</th>
+        </thead>
+        <tbody class="rocketsList">
+        </tbody>
+    </table>
 </script>
 
 <script type="text/template" id="viewRocket">
-    Name:
-    <span class="name" contenteditable="true"><%- name %></span>
-    <div class="form-horizontal">
+    <td class="name"><%- name %></td>
+    <td class="form-horizontal">
         <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
         <input class="size" type="number" value="<%- size %>" style="width: 40px;">
         <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
-        Remove:
+    </td>
+    <td class="desc" contenteditable="true"><%- description %></td>
+    <td>
         <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
-    </div>
-    Description:
-    <span class="desc" contenteditable="true"><%- description %></span>
+
+    </td>
 </script>
 
-<!--<script type="text/html" id="tmpl">-->
-<!--    <div>Name: <%=name %></div>-->
-<!--    <div>Size: <%=size %></div>-->
-<!--    <div>Color: <%=color %></div>-->
-<!--    <% if(nice === true){ %>-->
-<!--    <div>Nice!</div>-->
-<!--    <%   } %>-->
+
+<!--<script type="text/template" id="viewRocket">-->
+<!--    Name:-->
+<!--    <span class="name" contenteditable="true"><%- name %></span>-->
+<!--    <div class="form-horizontal">-->
+<!--        <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>-->
+<!--        <input class="size" type="number" value="<%- size %>" style="width: 40px;">-->
+<!--        <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>-->
+<!--        Remove:-->
+<!--        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>-->
+<!--    </div>-->
+<!--    Description:-->
+<!--    <span class="desc" contenteditable="true"><%- description %></span>-->
 <!--</script>-->
-
-
-
-
-
 </html>
