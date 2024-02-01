@@ -30,30 +30,10 @@
 </div>
 
 </body>
-
-
-<script src="js/jquery.js"></script>
-<script src="js/underscore.js"></script>
-<script src="js/backbone.js"></script>
-<script src="rocketModel.js"></script>
-<script src="rocketView.js"></script>
-<!--<script src="main.js"></script>-->
-
-<script>
-    $(function () {
-        const model = new RocketModel()
-        const view = new RocketView({
-            model,
-            el: '#rockets'
-        })
-    })
-</script>
-
-
 <script type="text/template" id="viewRockets">
     <h2>My rockets</h2>
-    <button data-rel="-10" class="changeSize btn btn-success btn-primary">add one</button>
-    <button data-rel="-10" class="changeSize btn btn-info btn-primary">to JSON</button>
+    <button class="addOne btn btn-success btn-primary">add one</button>
+    <button class="toJSON btn btn-info btn-primary">to JSON</button>
     <table class="table table-striped">
         <thead>
         <th data-sort="name">Name</th>
@@ -63,11 +43,17 @@
         </thead>
         <tbody class="rocketsList">
         </tbody>
+
     </table>
+    <div class="rocketsTotal">
+        Total items: <span class="totalItems">0</span>
+        Total size: <span class="totalSize">0</span>
+    </div>
+    <pre class="jsonOut"></pre>
 </script>
 
 <script type="text/template" id="viewRocket">
-    <td class="name"><%- name %></td>
+    <td class="name" contenteditable="true"><%- name %></td>
     <td class="form-horizontal">
         <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
         <input class="size" type="number" value="<%- size %>" style="width: 40px;">
@@ -76,22 +62,16 @@
     <td class="desc" contenteditable="true"><%- description %></td>
     <td>
         <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
-
     </td>
 </script>
 
 
-<!--<script type="text/template" id="viewRocket">-->
-<!--    Name:-->
-<!--    <span class="name" contenteditable="true"><%- name %></span>-->
-<!--    <div class="form-horizontal">-->
-<!--        <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>-->
-<!--        <input class="size" type="number" value="<%- size %>" style="width: 40px;">-->
-<!--        <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>-->
-<!--        Remove:-->
-<!--        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>-->
-<!--    </div>-->
-<!--    Description:-->
-<!--    <span class="desc" contenteditable="true"><%- description %></span>-->
-<!--</script>-->
+<script src="js/jquery.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="rocketsModel.js"></script>
+<script src="rocketView.js"></script>
+<script src="rocketsView.js"></script>
+<script src="main.js"></script>
+
 </html>
