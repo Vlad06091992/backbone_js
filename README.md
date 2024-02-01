@@ -1,11 +1,5 @@
-backbone-model
-==============
+Backbone.JS Router Краткий урок и быстрый старт
 
-BackboneJS events &amp; model - краткой урок и быстрый старт
-
-В этом небольшом уроке вы познакомитесь с основными принципами работы JS фреймворка Backbone,
-именно научитесь использовать события (events) и модели (models)
-
-http://youtu.be/eYdX37mVFgk
-
-http://it4p.ru
+В этом примере реализован просто BackboneJS роутер.
+http://youtu.be/Q1RFJhEkzIU
+http://www.it4p.ru

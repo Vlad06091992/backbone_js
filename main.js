@@ -1,27 +1,15 @@
-// создаем объект
 var app = app || {};
 
+//выполняем код после полной загрузки js-файлов
 $(function () {
-
-    $.fn.rocket = function(cmd) {
-        if (!window._rocket) {
-            window._rocket = {};
-        }
-        if (cmd == 'create') {
-
-            var id = Math.random();
-            $(this).attr('data-rocket-id',id);
-            window._rocket[id] = new RocketsView({
-                el: this
-            });
-
-        } if (cmd == 'json') {
-            var id = $(this).attr('data-rocket-id');
-            return window._rocket[id].coll.toJSON();
-        }
-    }
-
-    $('#rockets').rocket('create');
-    $('#rockets').rocket('create');
-
+    app.router = new Router();
+    $('#search').on('click',function(){
+        var query = $('#query').val();
+        var category = $('#category').val();
+        app.router.navigate("first/"+query+"/"+category, {trigger: true});
+        return false;
+    });
 });
+
+
+
