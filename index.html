@@ -6,58 +6,56 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span3">
-                <div class="well sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li class="nav-header">Menu</li>
-                        <li><a href="#first">First</a></li>
-                        <li><a href="#second">Second</a></li>
-                        <li><a href="#third">Third</a></li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="span9 pages">
-                <div id="page-first" class="hero-unit">
-                    <h1>1 Hello, router!</h1>
-                    <h3>Query: <span class="query"></span></h3>
-                    <h3>Category: <span class="category"></span></h3>
-                    <p>This is a template for a simple marketing or informational website. It includes
-                        a large callout called the hero unit and three supporting pieces of content.
-                        Use it as a starting point to create something more unique.</p>
-                    <form class="form-inline">
-                        <input id="query" type="text" placeholder="query">
-                        <select id="category" >
-                            <option>cars</option>
-                            <option>news</option>
-                            <option>rockets</option>
-                        </select>
-                        <a id="search" href="#" class="btn btn-primary btn-large">search »</a>
-                    </form>
-                </div>
-                <div id="page-second" class="hero-unit hide">
-                    <h1>2 Hello, router!</h1>
-                    <p>This is a template for a simple marketing or informational website. It includes
-                        a large callout called the hero unit and three supporting pieces of content.
-                        Use it as a starting point to create something more unique.</p>
-                </div>
-                <div id="page-third" class="hero-unit hide">
-                    <h1>3 Hello, router!</h1>
-                    <p>This is a template for a simple marketing or informational website. It includes
-                        a large callout called the hero unit and three supporting pieces of content.
-                        Use it as a starting point to create something more unique.</p>
-                </div>
-            </div>
-        </div>
-</div>
 </body>
-
+<div id="tmpl"></div>
+<p>123</p>
 
 <script src="js/jquery.js"></script>
 <script src="js/underscore.js"></script>
 <script src="js/backbone.js"></script>
+<script src="js/builder-view.js"></script>
+<script src="js/tableLayerView.js"></script>
+
+<script type="text/template" id="cakeBuilder">
+<p>Cake builder</p>
+    <button class="btn btn-info">add layer</button>
+    <hr/>
+<div class="container">
+    <div class="col col-sm-6"></div>
+    <div class="cake"></div>
+<div class="col col-sm-6">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Height</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody class="tbody"></tbody>
+
+
+</table>
+</div>
+</div>
+</script>
+
+
+
+<script type="text/template" id="viewTableLayer">
+    <td class="type"><select>
+        <option value="beze">beze</option>
+        <option value="biscuit">biscuit</option>
+        <option value="curd">curd</option>
+    </select></td>
+    <td class="height">
+        <input class="size" type="number"  style="width: 40px;">
+    </td>
+    <td>
+        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
+    </td>
+</script>
+
 <script src="main.js"></script>
-<script src="router.js"></script>
 </html>

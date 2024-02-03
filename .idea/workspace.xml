@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c5beb3a-11f0-4b6d-a0ec-44ead5201753" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backbone.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocketView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocketsModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocketsView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +46,9 @@
       <updated>1706600085184</updated>
       <workItem from="1706600089220" duration="16228000" />
       <workItem from="1706707324825" duration="2357000" />
-      <workItem from="1706784276028" duration="16222000" />
+      <workItem from="1706784276028" duration="17630000" />
+      <workItem from="1706947696503" duration="773000" />
+      <workItem from="1706948553115" duration="25000" />
     </task>
     <servers />
   </component>
