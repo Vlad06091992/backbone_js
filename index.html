@@ -4,26 +4,29 @@
     <meta charset="utf-8">
     <title>Backbone Router</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
 </body>
 <div id="tmpl"></div>
-<p>123</p>
 
 <script src="js/jquery.js"></script>
 <script src="js/underscore.js"></script>
 <script src="js/backbone.js"></script>
-<script src="js/builder-view.js"></script>
-<script src="js/tableLayerView.js"></script>
+<script src="js/builder-settings-view.js"></script>
+<script src="js/views.js"></script>
+<script src="js/models.js"></script>
 
 <script type="text/template" id="cakeBuilder">
 <p>Cake builder</p>
-    <button class="btn btn-info">add layer</button>
+    <button class="addLayer btn btn-info">add layer</button>
     <hr/>
 <div class="container">
-    <div class="col col-sm-6"></div>
+    <div class="row" v-show="hasLayers">
+    <div class="col col-sm-6">
     <div class="cake"></div>
+    </div>
 <div class="col col-sm-6">
 <table class="table table-bordered">
     <thead>
@@ -34,28 +37,35 @@
     </tr>
     </thead>
     <tbody class="tbody"></tbody>
-
-
 </table>
 </div>
 </div>
+</div>
+<div class="price alert alert-success"></div>
 </script>
 
 
 
 <script type="text/template" id="viewTableLayer">
-    <td class="type"><select>
-        <option value="beze">beze</option>
-        <option value="biscuit">biscuit</option>
-        <option value="curd">curd</option>
-    </select></td>
+    <td class="type">
+        <select class="changeLayer">
+            <option value="beze" <% if (background === 'beze') { %>selected<% } %>>beze</option>
+            <option value="biscuit" <% if (background === 'biscuit') { %>selected<% } %>>biscuit</option>
+            <option value="curd" <% if (background === 'curd') { %>selected<% } %>>curd</option>
+        </select>
+    </td>
     <td class="height">
-        <input class="size" type="number"  style="width: 40px;">
+        <input value="<%= height %>" class="size" type="number" style="width: 40px;">
     </td>
     <td>
         <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
     </td>
 </script>
 
+
+
+<script type="text/template" id="viewShowLayer">
+    <div  class="layer" style='height: <%= height %>; background-image: url("<%= background %>")'></div>
+</script>
 <script src="main.js"></script>
 </html>

@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+.col{
+    min-width: 500px;
+}
+
+.row{
+    display: flex;
+}
+
+table {
+    border-width: 0 1px;
+}
+
+td{
+    border: 1px solid gray;
+    padding:10px
+}
+
+.container{
+    margin: 10px auto;
+    max-width: 80%;
+}
+
+.wrapper {
+    padding: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.layer {
+    transition: height 0.5s;
+}
+
